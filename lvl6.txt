@@ -1,0 +1,68 @@
+so here we go
+
+
+we are in level 5 OTW
+we are given a bunch of directories w prefix maybehere
+I think the objective is to go through these dirs 
+we are given hints that it is
+	1) human readable
+	2) 1033 bytes in size
+	3) not executable
+
+let us check how the dirs are structured
+
+so it seems like there are files of different type in here
+we can use the file command to  get details about the file
+
+so like 'file myfile.txt'
+it seems that we get such an error
+file2: cannot open `file2' (No such file or directory)
+i think we must investigate this issue
+
+hmm so it seems like we do not have to go to all the directories one by one to get the information
+using the -ls- command, we can just do 'ls *' to get details, and even better 'ls -la *' which 
+gives us a lot more information, the -l in -la let us view it in a long listed format.
+
+learning about glob patterns in linux 
+they are also called wildcard pattern
+
+okay so here is the thing
+
+we can use the file * to list all the dirs
+then we check those directories with file */*
+
+here we use these so called glob patterns to get the executables
+now we can use the -grep- command to get only human readable files ie ASCII
+so it goes like grep 'ASCII text'
+combined: file */{.,}* | grep 'ASCII text'
+now we need to filter for size
+since it is a smaller file we can use -v tag to remove any files that has
+ASCII text, with very long lines
+so ti goes 
+file */{.,}* | grep 'ASCII text' | grep -v ', with very long lines'
+
+du command gives us info about the disk space used
+if we use -a tag along with it it gives us info about the files inside those dirs
+and we use -b tag we get the memory in bytes
+so we can now use du -b -a
+and check by hand for a file that is of 1033 bytes but we can do better
+
+let us use the grep command with it
+du -b -a | grep '1033'
+
+now we can cd in but my q is why cant i use the cat command to see it
+oh it looks like we have to use the .before file2
+so cat .file2
+
+
+
+
+
+
+
+
+
+
+
+
+

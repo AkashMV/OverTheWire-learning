@@ -1,0 +1,37 @@
+level 7
+
+our task here is to find a file somewhere on the server that
+1) owned by bandit 7
+2) owned by group bandit 6
+3) 33 bytes in size
+
+so that means we will have to work with user and file permissions..maybe chmod?
+
+every file and folder in linux has an
+1) owner
+2) group
+
+every owner has a UID
+every group had a GID
+
+file ownership is important for security
+let use stat to check detailed info about the files
+
+it seems that we can get use the find command to filter based on user and group name
+so let us try it out
+
+we can use find with tags -user and -group and -size
+it returns a lot of info but most of it needs root access and hence throws an error
+we can eliminate this error by using 2>/dev/null
+
+so what does this do?
+
+essentially this works with linux streams
+linux has 3 standard streams
+1) stdin
+2) stdout
+3) stderr
+
+file descriptors 0,1,2 respectively.
+
+
