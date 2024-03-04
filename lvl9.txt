@@ -1,0 +1,12 @@
+so we have huge data file
+du says it is about 51KB
+
+it seems that we can use the uniq command to get the uniq lines but in order for that to happen
+the file needs to be sorted first
+
+let us sort it out using the sort command
+and uniq needs a specific -u tag to find only once occuring line
+
+so using |
+we do, 
+sort data.txt | uniq -u and voila!
