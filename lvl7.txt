@@ -34,4 +34,13 @@ linux has 3 standard streams
 
 file descriptors 0,1,2 respectively.
 
+error messages are printed to stderr
+now our goal is to filter out the files and dirs that we do not have access to
 
+so we move the error messages(ones w file descriptor id2)  to /dev/null
+this discards anything given to it
+
+so the command goes like
+
+find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+now we can just cat into the result lessgoo! 
