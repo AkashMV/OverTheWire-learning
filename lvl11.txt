@@ -1,0 +1,4 @@
+we have a string of gibbersih.
+
+It says in the website that it contains base64 encoded data
+it seems that we need only use the base64 -d file
