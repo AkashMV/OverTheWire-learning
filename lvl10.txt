@@ -1,0 +1,17 @@
+new day let us continue
+
+we ls the directory
+it seems that the file is full of gibberish
+what may be the reason?
+
+it seems that we have to use some kind of regular expression, 
+otw website says that the password is preceded by several = characters
+
+it seems that to get human readable data out of such a text, 
+we can use the strings command to check for user readable txt in the file,
+then we can take the output and put it into grep
+
+it surely is interesting but i should find more use cases
+
+command:
+strings data.txt | grep ===
